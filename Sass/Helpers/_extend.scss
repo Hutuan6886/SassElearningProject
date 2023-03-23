@@ -1,0 +1,9 @@
+// extend này là các placeholder tạo sẵn các thành phần chung, sau này các class khác có thể sử dụng lại hoặc kế thừa các thuộc tính của các placeholder trong extend
+
+// Tạo mới 1 placeholder cho background để sau này có thể sử dụng chung thuộc tính
+// cách sử dụng, gọi @extend %background;
+%background{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

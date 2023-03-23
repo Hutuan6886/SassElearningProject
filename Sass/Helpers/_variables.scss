@@ -1,0 +1,73 @@
+// Color
+$color-white-0: #fff;
+$color-black-0: #000;
+$color-black-1: rgba(20, 23, 28, 0.1);
+$color-gray-light: #dee2e6;
+$color-gray-cream: #a1a7b3; // màu categories và chữ các thẻ navbar
+$color-input-focus: #dedfe0;
+$color-gray-0: #686f7a;
+$color-gray-1: #505763;
+$color-gray-opa-down: #c8d2e4a9;   // dark mode sidebarmini
+$color-gray-1-opa-down: #a4a9b4a9;    // slide của switch
+$color-gray-2: #29303b;
+$color-gray-3: rgba(20, 23, 28, 0.05); //sự kiện hover nav-item
+$color-white-cream: #f2f3f5; //màu cho thẻ input, màu nền courses left
+$color-red-0: #ec5252;
+$color-red-1: #521822; // màu cho phần intro
+$color-purple-0: #6e1a52; // màu cho phần intro 
+$color-blue-0: #007791;
+$color-yellow-0: #f4b150;
+
+
+/* dark theme */
+$color-dark-0: #152e4d;        // form search
+$color-dark-1: #061325;     //bg mặc định
+$color-dark-2: #344050;    // boxshadow của sidebarmini
+$color-gray-opa-darkdown: #181f2ea9;   // dark mode sidebarmini
+$color-gray-1-opa-darkdown: #727c92a9;    // slide của switch
+$color-dark-gray: #9da9bb;   // fs mặc định
+$color-dark-gray-1: #d8e2ef;   // fs
+$color-dark-black: #132238;
+
+
+
+
+
+// font size
+$fs-0: 13px;
+$fs-1: 15px;
+$fs-2: 18px;
+$fs-3: 24px;
+$fs-4: 36px;
+$fs-5: 40px;
+
+// font weight
+$fw-0: normal;
+$fw-1: 600;
+$fw-2: 700;
+
+// Line height khoảng cách giữa các dòng chữ
+$line-height-0: 1.43;
+
+// margin
+$mg-0: 5px;
+$mg-1: 20px;
+$mg-2: 25px;
+$mg-3: 15px;
+
+// padding
+$pd-0: 10px;
+$pd-1: 15px;
+$pd-2: 25px;
+$pd-3: 35px;
+
+// boder-radius
+$boder-radius: 4px; //sử dụng cho viền cong btn
+
+// break point (khai báo thành mảng)
+$breakpoints: (
+    'extra-large': 1200px, 
+    'large': 992px, 
+    'medium': 768px, 
+    'small': 576px,
+)

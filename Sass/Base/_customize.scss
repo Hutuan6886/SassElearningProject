@@ -1,0 +1,31 @@
+// Custom thư viện owl carousel
+
+// custom nút prev với nút next trong thư viện owl carousel
+// ".owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot" inspect code sẽ tìm được thư viện ntn, để không bị thư viện đè code thì copy đoạn code in đậm trong đó, phần "button.owl-prev" thì sẽ viết như bên dưới
+
+.owl-carousel {
+    position: relative;
+    .owl-nav {
+        button {
+            &.owl-prev , &.owl-next {
+                position: absolute;
+                top: 95px;
+                width: 40px;
+                height: 40px;
+                background-color: $color-white-0;
+                border-radius: 50%;
+                box-shadow: 0 0 7px 1px $color-gray-cream;
+                &:hover {
+                    background-color: $color-white-0;
+                    color: currentcolor;
+                }
+            }
+            &.owl-prev{
+                left: -20px;
+            }
+            &.owl-next{
+                right: -20px;
+            }
+        }
+    }
+}

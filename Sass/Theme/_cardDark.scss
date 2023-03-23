@@ -1,0 +1,44 @@
+.darkmode {
+    .card {
+        background-color: $color-dark-0;
+        border-color: $color-dark-2;
+        .card-body {
+            .card-title {
+                color: $color-dark-gray-1;
+            }
+            .card-text {
+                color: $color-dark-gray;
+            }
+        }
+        .card-stars{
+            span:nth-child(2){
+                color: $color-dark-gray-1;
+            }
+            span:last-child{
+                color: $color-dark-gray;
+            }
+        }
+        .card-price {
+            span:first-child {
+                color: $color-dark-gray; //gạch ngang lên chữ
+            }
+            span:last-child {
+                color: $color-dark-gray-1;
+            }
+        }
+    }
+
+
+
+    .feedback__cards{
+        border-color: $color-dark-2;
+        box-shadow: none;
+        .feedback__top{
+            .card_stars{
+                p{
+                    color: $color-dark-gray-1;
+                }
+            }
+        }
+    }
+}

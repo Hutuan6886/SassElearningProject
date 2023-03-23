@@ -1,0 +1,110 @@
+// Sử dụng cú pháp @include name( , , ,);
+
+
+// Khai báo mixin cho chữ
+@mixin style($color, $fs, $fw) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+// tạo mixin cho button
+@mixin btn($bgr-color, $color, $fs, $fw, $boder-color, $boder-radius, $pd-y, $pd-x) {
+    background-color: $bgr-color;
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+    border: 1px solid $boder-color;
+    border-radius: $boder-radius;
+    // padding 2 tham số
+    padding: $pd-y $pd-x;
+}
+
+// Tạo mixin cho form input
+//copy toàn bộ file đã tạo, và gán biến cho một số thuộc tính bị thay đổi của thẻ form khi tái sử dụng
+@mixin form-search($bg-color, $bg-color-focus, $color-border-focus) {
+    .input-group {
+        // xét background cho thẻ cha màu trắng, tắt màu đi các thẻ con sẽ làm thay đổi màu
+        background-color: $bg-color; // màu nền của các form search khác nhau nên sẽ gán biến cho màu nền
+
+        .form-control {
+            color: $color-gray-1; // màu chữ trong form search
+            background-color: transparent;
+            border: transparent;
+            // trong sự kiện focus của form-contrl có box-shadow, tắt sự kiện này đi
+            box-shadow: none;
+            // chỉnh hiệu ứng cho sự kiện focus
+            transition: all 0.5s;
+            &:focus {
+                background-color: $bg-color-focus; // màu focus sau này các form có thể bị thay đổi nên sẽ gán biến
+                // tắt viền bên phải của thẻ form-control
+                border: 1px solid $color-border-focus; // màu border focus sau này các form cũng có thể bị thay đổi nên sẽ gán biến
+                border-right: transparent;
+                // border-top: 1px solid $color-input-focus;
+                // border-bottom: 1px solid $color-input-focus;
+                // border-left: 1px solid $color-input-focus;
+            }
+            // Dấu + có tác dụng sẽ tìm và lấy tất cả các thẻ cùng cấp với thẻ cha chứa nó hoặc chỉ định chính xác thẻ cùng cấp đó. Trong trh này, cùng cấp với thẻ form-control chứa dấu cộng có thẻ input-group-text, sẽ đem vô và thực hiện sự kiện focus. (Khóa 4, chương 1, bài 9, phút 28:00)
+            &:focus + .input-group-text {
+                border: 1px solid $color-border-focus; // màu border bên phần icon, cũng có thể thay đổi theo màu của phần input, nên gán chung biến với phần input (form-control)
+                background-color: $bg-color-focus; // màu bg phần icon, cũng có thể thay đổi theo màu của phần input, nên gán biến nên gán chung biến với phần input (form-control)
+                i {
+                    color: $color-red-0;
+                }
+                // hiệu hứng hover
+                transition: all 0.5s;
+                // cách viết hover theo syntax scss
+                // & is parent selector, it is parent selector containing it, it is input-group-text class
+                &:hover {
+                    background-color: $color-red-0;
+                    i {
+                        color: $color-white-0;
+                    }
+                }
+            }
+            // Chỉnh màu chữ trong phần input form
+            &::placeholder {
+                @include style($color-gray-2, $fs-0, $fw-1);
+            }
+        }
+        .input-group-text {
+            border: transparent;
+            background-color: transparent;
+            i {
+                color: $color-red-0;
+            }
+            // hiệu hứng hover
+            transition: all 0.5s;
+            // cách viết hover theo syntax scss
+            // & is parent selector, it is parent selector containing it, it is input-group-text class
+            &:hover {
+                background-color: $color-red-0;
+                i {
+                    color: $color-white-0;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// Tạo mixin cho responsive 
+@mixin responsive($screen) {
+    // Kiểm tra screen có tồn tại bên trong vùng breakpoint tạo bên variable hay không
+    @if map-has-key($map: $breakpoints, $key: $screen){   // giá trị map là tên của biến đang chứa giá trị màn hình, Key là tên của thuộc tính truyền giá trị vào để kiểm tra
+        
+        // Lấy vùng kích thước của vùng màn hình ra, 
+        $value: map-get($map: $breakpoints, $key: $screen);   //cần sử dụng biến tạm để chứa giá trị màn hình, map là tên biến, tên thuộc tính, tên kích thước màn hình muốn lấy ra trong breakpoints
+        @media screen and (max-width:$value){   // Truyền thông số đã gán vô ở biến value trước đó vào max-width
+            @content;   // Tự động lấy code responsive để điền vô chỗ này
+        }
+    }
+    @else {
+        // Lệnh cảnh báo khi không trùng kích thước vùng màn hình.
+        @warn "`{screen}` is  unvailable"; 
+    }
+}
+
+// Khi responsive, ngoài các vùng kích thước mặc định phải set, nếu có khoảng lưng chừng nào làm trang web hiển thị lỗi rớt phần tử, thì set kết hợp min-width và max-width để sửa riêng cho vùng màn hình đó 

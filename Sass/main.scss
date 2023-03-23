@@ -1,0 +1,63 @@
+// 1. Khai báo phần helpers
+// Khai báo biến
+@import './Helpers/variables';
+// Khai báo hàm
+@import './Helpers/mixin';
+//Khai báo extend
+@import './Helpers/extend';
+
+// 2. Khai báo các thư viện animation (vendors)
+
+// 3. Khai báo Base
+// Khai báo reset
+@import './Base/reset';
+// Khai báo customize
+@import './Base/customize';
+
+// 4. Khai báo layout
+// Header
+@import './Layout/header';
+// footer
+@import './Layout/footer';
+//cover
+@import './Layout/cover';
+//intro
+@import './Layout/intro';
+// courses
+@import './Layout/courses';
+// Layout
+@import './Layout/view';
+// Banner
+@import './Layout/banner';
+// Categories
+@import './Layout/categories';
+// Feedback
+@import './Layout/feedback';
+// Partner
+@import './Layout/partner';
+//sidebar
+@import './Layout/sidebar';
+// Sidebar mini
+@import './Layout/sidebarmini';
+
+// 5. khai báo components
+// button
+@import './components/button';
+@import './components/card';
+
+// 6. Khai báo pages
+// Home
+@import './pages/home';
+
+
+// 7. Khai báo theme
+// dark
+@import './Theme/resetDark';
+@import './Theme/sidebarminiDark';
+@import './Theme/hearderDark';
+@import './Theme/coursesDark';
+@import './Theme/cardDark';
+@import './Theme/viewDark';
+@import './Theme/feedbackDark';
+@import './Theme/partnerDark';
+@import './Theme/footerDark';

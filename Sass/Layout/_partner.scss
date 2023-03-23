@@ -1,0 +1,44 @@
+.partner{
+    background-color: $color-white-cream;
+    margin-bottom: 25px;
+    .partner__content{
+        p{
+            @include style($color-gray-1, $fs-1, $fw-1);
+            text-align: center;
+            padding: 15px 0 0;
+        }
+        .partner__image{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px auto 25px;
+
+            // Vì thẻ cha image mang thuộc tính flax nên sẽ bất chấp các phần tử trên 1 hàng, nên muốn rớt hàng thì phải set lại định dạng flex-wrap: wrap;
+            //  Sau đó cho định dạng thẻ con tương ứng với % của thẻ cha để set bao nhiêu phần tử ở trên 1 hàng
+
+            @include responsive("large"){
+                text-align: center;
+                flex-wrap: wrap;
+                .partner__items {
+                    width: 50%;  // 50% thì mỗi hàng sẽ chứa 2 thẻ con
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        .partner__bottom{
+            .partner__items__bottom{
+                text-align: center;  // căn giữa tất cả các phần tử con
+                padding-bottom: 15px;
+                p:first-child{
+                    @include style($color-gray-1, $fs-1, $fw-1);
+                    margin: 10px 0;
+                    padding: 0;
+                }
+                p:nth-child(2){
+                    @include style($color-black-0, $fs-0, $fw-0);
+                    padding: 0 130px;
+                }
+            }
+        }
+    }
+}

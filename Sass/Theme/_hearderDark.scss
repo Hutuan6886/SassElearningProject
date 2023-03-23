@@ -1,0 +1,61 @@
+.darkmode{
+    .navbar{
+        .header__left{
+            .navbar-brand{
+                // trong theme dark thì ẩn logo của light đi và bật logo dark lên
+                .logo-light{
+                    display: none;
+                }
+                .logo-dark{
+                    display: block;
+                }
+            }
+            .categories{
+                color: $color-white-0;
+            }
+            .nav__form{
+                .input-group{
+                    background-color: $color-dark-0;
+                    color: $color-dark-gray-1;
+                    .form-control{
+                        &::placeholder{
+                            color: $color-dark-gray-1;
+                        }
+                        &:focus{
+                            background-color: $color-dark-1;
+                            border-color: $color-gray-cream;
+                        }
+                        &:focus + .input-group-text{
+                            background-color: $color-dark-1;
+                            border-color: $color-gray-cream;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        .header__right{
+            .navbar-nav{
+                .nav-item{
+                    .nav-link{
+                        color: $color-white-0;
+                        
+                    }
+                    .overlay{
+                        background-color: $color-dark-1;
+                        box-shadow: 0 4px 16px $color-dark-2;
+                        &::before{   
+                        border-bottom-color: $color-dark-1;
+                        }
+                    }  
+                }
+                .fa-shopping-cart{
+                    color: $color-white-0;
+                    &:hover{
+                        background-color: $color-gray-2;
+                    }
+                }
+            }
+        }
+    }
+}

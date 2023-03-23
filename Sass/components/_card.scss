@@ -1,0 +1,66 @@
+// Tạo file riêng cho bố cực của phần course, để sử dụng cho toàn bộ website
+
+// Xét kích thước cho các khóa học và các khóa học đều giống nhau
+
+.card{
+    height: 250px;
+    .card-body{
+        padding: 1rem 1rem 0;
+        .card-title{
+            @include style($color-gray-2,$fs-1,$fw-1);
+        }
+        .card-text{
+            @include style($color-gray-0,$fs-0 - 1,$fw-0);
+        }
+    }
+    .card-stars{
+        white-space: nowrap;
+        padding: 0 1rem;
+        @include style($color-yellow-0,$fs-0 - 1,$fw-0);
+        span:nth-child(2){
+            @include style($color-gray-0,$fs-0 - 1,$fw-2);
+        }
+        span:last-child{
+            @include style($color-gray-0,$fs-0 - 1,$fw-0);
+        }
+    }
+    .card-price{
+        padding: 0 1rem;
+        @include style($color-gray-0,$fs-0 - 1,$fw-0);
+        text-align: right;
+        span:first-child{
+            text-decoration: line-through;  //gạch ngang lên chữ
+        }
+        span:last-child{
+            @include style($color-gray-0,$fs-1,$fw-1);
+        }
+    }
+}
+
+
+.feedback__cards{
+    height: 300px;
+    padding: $pd-3;
+    border: 1px solid $color-input-focus;
+    border-radius: 5px;
+    box-shadow: 0 1px 8px 0 $color-input-focus;
+    .feedback__top{
+        display: flex;
+        img{
+            width: 64px;
+            height: 64px;
+            border-radius: 50px;
+        }
+        .card_stars{
+            @include style($color-yellow-0, $fs-0, $fw-0); // màu cho ngôi sao, nếu set cho thẻ i thì chỉ tô màu viên của ngôi sao 
+            margin-left: 20px;
+            p{
+                @include style($color-gray-0, $fs-0, $fw-0);
+                margin: 0;
+            }
+        }
+    }
+    p{
+        margin: $mg-0 + 5 0;
+    }
+}

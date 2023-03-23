@@ -1,0 +1,99 @@
+.sidebarmini{
+    width: 150px;
+    border-radius: 0 0 0 5px;  // tạo viền trên trái dưới cong
+    // Để thành phần trượt theo website thì sử dụng position: fixed
+    position: fixed;
+    right: 0;
+    bottom: 5%;
+    z-index: 999;  // set z-index để các layout khác không đè lên
+    background-color: $color-gray-opa-down;
+    .sidebarmini__button{
+        @include btn($color-gray-opa-down,$color-black-0,$fs-3,$fw-0,transparent,5px,5px,15px);
+        // sử dụng border-radius: với 4 tham số tương ứng với 4 góc của thẻ;
+        border-radius: 5px 0 0 5px;
+        position: fixed;
+        // sử dụng transform: translate(); để di chuyển thẻ
+        transform: translate(-100%);  // -100% là di chuyển đúng 100% kích thước của thẻ này về bên trái
+        cursor: pointer;
+
+        transition: .5s; // vì sidebar có transition nên khi đổi màu theme sẽ làm chuyển màu không đồng nhất với thẻ này, nên cũng phải thêm transition giống thẻ sidebar
+    }
+    .sidebarmini__content{
+        text-align: center;
+        h4{
+            @include style($color-black-0,$fs-2,$fw-0);
+            margin: 0;
+            padding: 20px 0 5px;
+        }
+        .sidebarmini__checkbox{
+            display: flex;   // để 3 phần tử nằm trên 1 hàng 
+            justify-content: space-around;
+            padding-bottom: 20px;
+            span{
+                @include style($color-black-0,$fs-2,$fw-0);
+            }
+            .switch{
+                
+                // set kích thước
+                width: 50px;
+                height: 25px;
+                position: relative;
+                input{
+                    display: none;
+                    
+                    // Khi input được checked, thì slider và before của slider thay đổi
+                    // sự kiện transition được gán tại thẻ trước khi checked, hover, focus,... xuất hiện, thì đó là thẻ before ban đầu
+                    &:checked + .slider{
+                        background-color: #2cd888e5;
+                        &::before{
+                            transform: translateX(24px);
+                        }
+                    }
+                }
+                .slider{
+                    cursor: pointer;
+                    box-shadow: 0 0 8px 1px $color-gray-0;
+                    // để định kích thước của thẻ con này phủ toàn bộ thẻ cha switch, thì sử dụng position: absolute và set top,bottom,left,right đều là 0 để kéo căng 4 phía của thẻ con 
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: $color-gray-1-opa-down;
+                    border-radius: 35px;
+
+                    // Để tạo hình tròn trượt qua lại trong slider thì sử dụng before
+                    &::before{
+                        content: '';
+                        // set kích thước hình vuông, vẽ thành hình tròn, và set lại màu
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        background-color: $color-white-0;
+                        // Chỉnh vị trí cho công tắc hình tròn
+                        position: absolute;
+                        left: 3px;
+                        top: 2px;
+
+                        transition: .2s;   // hiệu ứng công tắc trượt 
+                    }
+                }
+            }
+        }
+    }
+
+
+    // set vị trí ban đầu của sidebarmini là thụt vô
+    transform: translateX(100%);  // thụt qua bên phải 100%
+
+    // tạo class active gán kèm để khi click vào thẻ button sẽ dùng JS gán class active này vô, để thực hiện hiện thẻ sidebarmini ra
+    transition: .5s;   // hiệu ứng trượt mượt mà
+    &.active{
+        transform: translateX(0);
+    }
+
+}
+
+
+// cách tạo công tắc, ghi chi tiết bên html

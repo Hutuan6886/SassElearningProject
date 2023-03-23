@@ -1,0 +1,33 @@
+.banner {
+    // background: color url() position/bachground-size background-repeat;  Vì có position và bg-size trong backgroung: nên bắt buộc phải có dấu "/" 
+    // nếu tách biệt background: linear-gradient(); và background: url(); thì sẽ bị đè lẫn nhau
+    // Muốn kết hợp 2 cái thì sử dụng background: url() , linear-gradient();
+    background: url(../../img/logo-coral-white.svg) 0/70% no-repeat , linear-gradient(45deg,#b42b76,#b911cf,#073b53 41%);   // 41% là tỉ lệ trải màu
+    // Cách chỉnh tỉ lệ trải màu trong Khóa 4, chương 1, bài 20, phút 26:00
+    background-blend-mode: overlay;  // thuộc tính overlay để trung hòa, trộn lẫn 2 màu background lại với nhau
+    height: 325px;
+
+    position: relative;
+    .banner__content {
+        text-align: center;
+        color: $color-white-0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* set vị trí thẻ con di chuyển theo trục xy, giá trị 50% nghĩa là thẻ con di chuyển lên 1 khoảng 50% so với giá trị của thẻ con, và di chuyển qua trái 50% so với giá trị của thẻ con */
+        /* kết hợp 2 điều này sẽ giúp căn thẻ con ra giữa */
+        /* kĩ thuật chỉ áp dụng khi có position */
+        transform: translate(-50%, -50%);
+        p {
+            margin: 0;
+        }
+        .col-6{
+            cursor: pointer;
+        }
+
+
+        @include responsive("small"){
+            width: 90%;
+        }
+    }  
+}

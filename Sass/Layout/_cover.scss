@@ -1,0 +1,46 @@
+.cover{
+    // cách viết đường dẫn file sass
+    // background-image: url('../../img/cover.jpg');
+    // Lưu ý quan trọng, khi thực hiện đường dẫn thì sử dụng đường dẫn theo file main.css chứ không sử dụng đường dẫn theo file scss, bởi vì biên dịch sẽ biên dịch từ file main.css
+    background-image: url('../img/cover.jpg');
+    // Để kế thừa class background trong extend thì
+    @extend %background;
+    height: 486px;
+    position: relative;
+
+    .cover-content{
+        max-width: 450px;   // xét lại kích thước cho thẻ chứa tiêu đề
+        position: absolute;
+        top: 130px;
+        left: 145px;
+        h1{
+            @include style($color-white-0,$fs-4,$fw-1);
+        }
+        p{
+            @include style($color-white-0,$fs-1,$fw-0);
+        }
+        .cover-form{
+            @include form-search ($color-white-0,$color-white-0,$color-white-0);
+        }
+
+    }
+
+
+    @include responsive("medium"){
+        .cover-content{
+            max-width: 400px;
+            position: absolute;
+            top: 130px;
+            left: 110px;
+        }
+    }
+
+    @include responsive("small"){
+        .cover-content{
+            max-width: 350px;
+            position: absolute;
+            top: 130px;
+            left: 20px;
+        }
+    }
+}

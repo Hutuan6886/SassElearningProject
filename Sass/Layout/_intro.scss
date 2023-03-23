@@ -1,0 +1,48 @@
+// Thêm màu hoặc hình ảnh background thì thêm ở class lớn nhất
+.intro{
+    // sử dụng màu trải
+    // tham số linear-gradient(Hướng trải màu(to left,right,top,bottom...,45deg,90deg,-45deg,270deg,...) , màu bắt đầu , màu kết thúc). Khóa 4, chương 1, bài 14, phút 29:00
+    background: linear-gradient(-45deg,#ec5252,#6e1a52);
+    .intro-content{
+        // căn giữa cho vùng nội dung
+        width: 80%;
+        margin: 0 auto;
+
+        .intro-item{
+            display: flex;  // để cho vùng icon và text ngang 1 hàng
+            justify-content: center;
+            align-items: center;
+            .intro-icon{
+                
+                @include style($color-white-0, $fs-5 + 10, $fw-0);
+            }
+            .intro-text{
+                p:first-child{
+                    @include style($color-white-0, $fs-1, $fw-1);
+                    margin: 1rem 1.5rem 0;
+                }
+                p:last-child{
+                    @include style($color-white-0, $fs-0, $fw-0);
+                    margin: 0 1.5rem 1rem;
+                }
+            }
+        }
+    }
+
+
+    @include responsive("extra-large"){
+        .intro-content{
+            .intro-item{
+                .intro-icon{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @include responsive("medium"){
+        .intro-content{
+            display: none;
+        }
+    }
+}

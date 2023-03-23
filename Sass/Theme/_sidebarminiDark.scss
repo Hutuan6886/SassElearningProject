@@ -1,0 +1,26 @@
+.darkmode{
+    .sidebarmini{
+        background-color: $color-gray-opa-darkdown;
+        .sidebarmini__button{
+            background-color: $color-gray-opa-darkdown;
+            color: $color-input-focus;
+        }
+        .sidebarmini__content{
+            h4{
+                color: $color-input-focus;
+            }
+            .sidebarmini__checkbox{
+                span{
+                    color: $color-input-focus;
+                }
+                .switch{
+                    .slider{
+                        background-color: #969c9ae5;
+                        box-shadow: 0 0 8px 1px $color-dark-2;
+                    }
+                }
+                
+            }
+        }
+    }
+}

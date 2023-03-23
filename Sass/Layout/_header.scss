@@ -1,0 +1,268 @@
+.navbar {
+    // tạo thuộc tính box-shadow: làm nổi khối phần header lên, nổi 2 khối box-shadow
+    box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.05), 0 3px 1px 0 rgba(20, 23, 28, 0.05);
+    .header__left {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        .navbar-brand {
+            // hình ảnh xét chiều ngang, chiều dọc tự xét theo chiều ngang
+            width: 110px;
+            margin: 0;
+            // flex-grow là xét phần tử của từng mảng tưng úng là giá trị phần. bằng 1 là 1 phần, bằng 8 là 8 phần
+            // thẻ bằng 1 tương ứng 1/10
+            flex-grow: 1;
+            img {
+                width: 100%;
+            }
+            // trong theme light thì ẩn logo của dark đi và bật logo light lên
+            .logo-light {
+                display: block;
+            }
+            .logo-dark {
+                display: none;
+            }
+        }
+        .categories {
+            text-decoration: none;
+            // khai báo mixin
+            @include style($color-gray-1, $fs-0, $fw-0);
+            flex-grow: 1;
+            i {
+                color: $color-gray-cream;
+            }
+        }
+        .nav__form {
+            // thẻ form là 8 phần nên sẽ gấp 8 lần kích thước 2 thẻ trên(tưng ứng 8/10)
+            flex-grow: 8;
+
+            // .input-group {
+            //     // xét background cho thẻ cha màu trắng, tắt màu đi các thẻ con sẽ làm thay đổi màu
+            //     background-color: $color-white-cream;
+
+            //     .form-control {
+            //         color: $color-gray-1;
+            //         background-color: transparent;
+            //         border: transparent;
+            //         // trong sự kiện focus của form-contrl có box-shadow, tắt sự kiện này đi
+            //         box-shadow: none;
+            //         // chỉnh hiệu ứng cho sự kiện focus
+            //         transition: all 0.5s;
+            //         &:focus {
+            //             background-color: $color-white-0;
+            //             // tắt viền bên phải của thẻ form-control
+            //             border: 1px solid $color-input-focus;
+            //             border-right: transparent;
+            //             // border-top: 1px solid $color-input-focus;
+            //             // border-bottom: 1px solid $color-input-focus;
+            //             // border-left: 1px solid $color-input-focus;
+            //         }
+            //         // Dấu + có tác dụng sẽ tìm và lấy tất cả các thẻ cùng cấp với thẻ cha chứa nó hoặc chỉ định chính xác thẻ cùng cấp đó. Trong trh này, cùng cấp với thẻ form-control chứa dấu cộng có thẻ input-group-text, sẽ đem vô và thực hiện sự kiện focus. (Khóa 4, chương 1, bài 9, phút 28:00)
+            //         &:focus + .input-group-text {
+            //             border: 1px solid $color-input-focus;
+            //             background-color: $color-white-0;
+            //             i {
+            //                 color: $color-red-0;
+            //             }
+            //             // hiệu hứng hover
+            //             transition: all 0.5s;
+            //             // cách viết hover theo syntax scss
+            //             // & is parent selector, it is parent selector containing it, it is input-group-text class
+            //             &:hover {
+            //                 background-color: $color-red-0;
+            //                 i {
+            //                     color: $color-white-0;
+            //                 }
+            //             }
+            //         }
+            //         // Chỉnh màu chữ trong phần input form
+            //         &::placeholder {
+            //             @include style($color-gray-2, $fs-0, $fw-1);
+            //         }
+            //     }
+            //     .input-group-text {
+            //         border: transparent;
+            //         background-color: transparent;
+            //         i {
+            //             color: $color-red-0;
+            //         }
+            //         // hiệu hứng hover
+            //         transition: all 0.5s;
+            //         // cách viết hover theo syntax scss
+            //         // & is parent selector, it is parent selector containing it, it is input-group-text class
+            //         &:hover {
+            //             background-color: $color-red-0;
+            //             i {
+            //                 color: $color-white-0;
+            //             }
+            //         }
+            //     }
+            // }
+            // sau khi tạo xong form input-group thì sẽ tạo mixin cho nó để sau này sẽ tái sử dụng vào nhiều thanh input khác, copy tào bộ thẻ input-group vào mixin và gán giá trị cho một số thuộc tính thay đổi của thẻ input
+            // Khai báo mixin của phần form
+            @include form-search($color-white-cream, $color-white-0, $color-input-focus);
+        }
+    }
+    .header__right {
+        text-align: center;
+        display: flex;
+        // class navbar-nav bản chất đã có sẵn flex của bootstrap
+        .navbar-nav {
+            // vì độ dài thẻ ul không bằng kích thước thẻ cha nên phải xét lại kích thước chiều ngang
+            width: 100%;
+            // chỉnh khoảng cách các thẻ items chiều ngang
+            justify-content: space-around;
+            // căn giữa cho các thẻ con
+            align-items: center;
+            .nav-item {
+                transition: all 0.2s;
+                position: relative; // khai báo relative cho thẻ cha, absolute cho thẻ con, sẽ làm thẻ con rời ra khỏi thẻ cha, và từ đó có thể thay đổi vị trí thẻ con
+                // position: relative giống như khai báo hộ khẩu cho thẻ con, để thẻ con biết di chuyển vị trí bao nhiêu so với thẻ cha, nếu không thì nó sẽ tìm các cấp cha bên ngoài
+
+                .nav-link {
+                    @include style($color-gray-1, $fs-0, $fw-0);
+                }
+                &:hover {
+                    padding: 4px 2px;
+                    border-radius: 5px;
+                    background-color: $color-gray-3;
+                    // Khi hover thẻ cha nav-item thì thay đổi sự kiện hover và thay đổi overlay
+                    .overlay {
+                        display: block;
+                    }
+                }
+                .overlay {
+                    background-color: $color-white-0;
+                    width: 330px;
+                    padding: 20px;
+                    position: absolute;
+                    top: 53px; //khai báo vị trí thẻ con
+                    right: -5px;
+                    // before thì tạo cho phí trước và phía trên thẻ, after thì tạo phía sau và dưới thẻ
+                    box-shadow: 0 4px 16px $color-black-1;
+                    &::before {
+                        content: "";
+                        // tạo hình tam giác
+                        border-bottom: 10px solid $color-white-0;
+                        border-left: 10px solid transparent;
+                        border-right: 10px solid transparent;
+                        // muốn tạo tam giác kiểu này phải cho thành định dạng block
+                        display: inline-block;
+                        // có thể tạo hình tam giác bằng cách tạo 1 khối hình vuông, di chuyển hình vuông đó rồi sau đó sử dụng transform: rotate(45deg), 45deg là 45 độ để xoay cạnh nhọn của hình vuông đó theo ý mong muốn.
+                        // chỉnh vị trí cho hình tam giác
+                        position: absolute;
+                        top: -10px;
+                        right: 65px;
+                    }
+                    // sau khi căn chỉnh hết overlay thì cho ẩn đi, vì lúc đầu ẩn đi, hover mới hiện lên
+                    display: none;
+                    // thiết lập ưu tiên cho overlay, vì bị phần cover đè lên
+                    z-index: 10;
+                }
+            }
+            .fa {
+                color: #000;
+                font-size: $fs-2 + 2; //font size được coojgn thêm 2 là 20, ghi cách ra, không thì sẽ bị lỗi
+                transition: all 0.2s;
+                &:hover {
+                    // tạo hình vuông cho khối bằng padding
+                    padding: 10px;
+                    // sau đó bo thành hình tròn
+                    border-radius: 25px; // hoặc 50%
+                    // xét màu
+                    background-color: $color-white-cream;
+                }
+            }
+            // Phần nút khai báo riêng trong phần components-button
+        }
+    }
+}
+
+//Responsive
+
+@media screen and (min-width: 1201px) and (max-width: 1238px) {
+    .navbar-nav {
+        .nav-item {
+            white-space: nowrap;
+            .overlay {
+                white-space: normal; // vì thẻ cha nowrap nên làm ảnh hưởng thẻ con overlay không rớt xuống hàng
+            }
+        }
+        .btn-head {
+            display: flex; // set lại flex để 2 btn không bị rớt xuống hàng
+            gap: 5px; // khoảng cách phần tử nội bộ
+        }
+    }
+}
+
+// Dưới vùng kích thước 1200px ẩn đi 2 nav-item-right
+@include responsive("extra-large") {
+    html,
+    body {
+        // Xóa khoảng trắng bên phải trong mobile
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .res-nav-business,
+    .res-nav-instructor {
+        display: none;
+    }
+    .navbar {
+        .header__right {
+            .fa-shopping-cart {
+                font-size: 0.75rem;
+            }
+        }
+    }
+}
+
+@include responsive("medium") {
+    .navbar {
+        flex-wrap: nowrap;
+        .header__left {
+            .categories,
+            .nav__form {
+                display: none;
+            }
+            .navbar-brand {
+                img {
+                    width: 30%;
+                }
+            }
+        }
+        .header__right {
+            .btn-login,
+            .btn-signup {
+                display: none;
+            }
+            .fa-shopping-cart {
+                font-size: 0.75rem;
+            }
+        }
+        .navbar-toggler {
+            font-size: 0.75rem;
+        }
+    }
+}
+
+@include responsive("small") {
+    .navbar {
+        .header__left {
+            .navbar-brand {
+                img {
+                    width: 60%;
+                }
+            }
+        }
+        .header__right {
+            .fa-shopping-cart {
+                font-size: 0.75rem;
+                padding-right: 20px;
+            }
+            // giỏ hàng nằm cách xa viền của trang web nên chỉnh lại giỏ hàng sát về bên phải bằng cách set bằng nửa kích thước thẻ cha và dùng margin để đẩy
+            width: 50%;
+            margin-left: auto;
+        }
+    }
+}

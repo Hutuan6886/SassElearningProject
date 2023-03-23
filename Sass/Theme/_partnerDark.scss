@@ -1,0 +1,21 @@
+.darkmode {
+    .partner {
+        background-color: $color-dark-2;
+        .partner__content {
+            p {
+                color: $color-dark-gray-1;
+            }
+            .partner__bottom {
+                .partner__items__bottom {
+                    p:first-child {
+                        color: $color-dark-gray-1;
+                    }
+                    p:nth-child(2) {
+                        color: $color-dark-gray;
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,76 @@
+footer {
+    .footer__content {
+        width: 90%;
+        margin: 0 auto;
+
+        @include style(#0b4eb4, $fs-0, $fw-0);
+        a {
+            display: block;
+            text-decoration: none;
+            margin: 10px 0;
+            white-space: nowrap;
+        }
+
+        .dropup {
+            padding: 10px 0;
+            text-align: right;
+            .btn-secondary {
+                background-color: $color-white-0;
+                @include style($color-gray-cream, $fs-0, $fw-1);
+                border: 1px solid $color-gray-cream;
+                transition: all 0.5s;
+                &:hover {
+                    @include style($color-black-0, $fs-0, $fw-1);
+                    border: 1px solid $color-black-0;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+            .dropdown-menu {
+                .dropdown-item {
+                    margin: 0;
+                    @include style($color-gray-cream, $fs-0, $fw-0);
+                    transition: all .5s;
+                    &:hover {
+                        background-color: transparent;
+                        @include style($color-black-0, $fs-0, $fw-0);
+                    }
+                }
+            }
+        }
+    }
+    .footer__bottom{
+        width: 90%;
+        margin: 0 auto;
+        .bottom__left{
+            img{
+                width: 110px;
+            }
+            .logo-light {
+                display: block;
+            }
+            .logo-dark {
+                display: none;
+            }
+            span{
+                @include style($color-gray-cream, $fs-0, $fw-0 - 3);
+                padding: 0 10px;
+            }
+        }
+        .bottom__right{
+            text-align: right;
+            a{
+                text-decoration: none;
+                @include style(#0b4eb4, $fs-0, $fw-0 - 2);
+                padding: 0 10px;
+            }
+
+
+            @include responsive("medium"){
+                text-align: left;
+                margin: 10px 0;
+            }
+        }
+    }
+}

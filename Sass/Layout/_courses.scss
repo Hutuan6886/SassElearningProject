@@ -1,0 +1,57 @@
+.courses {
+    margin: 25px 0;
+    .courses-content {
+        width: 90%;
+        margin: 0 auto;
+        .courses__tilte {
+            background-color: $color-white-cream;
+            // để căn giữa 1 khối duy nhất sử dụng kĩ thuật flex, thì với điều kiện khối căn giữa đó là thẻ con trực tiếp duy nhất, nếu có nhiều thẻ con trực tiếp thì vẫn căn giữa được nhưng các khối sẽ bị đẩy ra thành 1 hàng ngang do flex
+            display: flex;
+            align-items: center;
+            .courses-left {
+                h2 {
+                    @include style($color-black-0, $fs-2 + 2, $fw-0);
+                }
+            }
+        }
+
+        .courses__scroll {
+            padding-right: 0;
+            #myTab {
+                .nav-item {
+                    .nav-link {
+                        transition: all .5s;
+                        // tạo font chữ cho tab
+                        @include style($color-black-0, $fs-1, $fw-0);
+                        // chỉnh lại hover cho giống layout
+                        &:hover {
+                            // tắt hiệu ứng viền hover mặc định của bstr cho các tab
+                            border: transparent;
+                            color: $color-blue-0;
+                        }
+                        &.active {   // ghi như vậy nghĩa là .nav-link .active
+                            border: transparent;  // tắt hiệu ứng viền cho active
+                            position: relative;   // xác định thẻ cha position để chỉnh lại vị trí after
+                            &::after {      // tạo đường gạch dưới cho active 
+                                content: "";
+                                border-bottom: solid 5px $color-blue-0;
+                                // display: block;   Định dạng lại kiểu block mới hiện
+                                width: 100%;   // chỉnh lại kích thước ngang
+                                position: absolute;   // chỉnh lại vị trí cho active
+                                top: 35px;
+                                left: 0px;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            #myTabContent{
+                margin-top: 20px;
+            }
+        }
+    }
+}
+// sửa trực tiếp 2 nút prev và next của thư viện carousel trong file customize
+
+// để tạo dấu 3 chấm khi title quá dài để chống vỡ layout, buộc phải dùng javascript, trong file main.js

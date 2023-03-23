@@ -1,0 +1,26 @@
+// Truyền tham số cho các btn
+.btn-login{
+    white-space: nowrap; // không để chữ rớt xuống thành 2 hàng
+    transition: all 0.5s;
+    @include btn($color-white-0, $color-gray-cream, $fs-1, $fw-1, $color-gray-2, $boder-radius, $pd-0, $pd-0);
+    &:hover {
+        @include btn($color-white-0, $color-gray-2, $fs-1, $fw-1, $color-gray-2, $boder-radius, $pd-0, $pd-0);
+    }
+}
+.btn-signup{
+    white-space: nowrap;
+    transition: all 0.5s;
+    @include btn($color-red-0, $color-white-0, $fs-1, $fw-1, $color-gray-2, $boder-radius, $pd-0, $pd-0);
+    &:hover {
+        @include btn($color-red-1, $color-white-0, $fs-1, $fw-1, $color-gray-2, $boder-radius, $pd-0, $pd-0);
+    }
+}
+
+.btn-banner , .btn-partner{
+    margin: 5px 0;
+    transition: all 0.5s;
+    @include btn($color-red-0, $color-white-0, $fs-1, $fw-1, $color-gray-2, $boder-radius, $pd-0, $pd-0);
+    &:hover {
+        @include btn($color-red-1, $color-white-0, $fs-1, $fw-1, $color-gray-2, $boder-radius, $pd-0, $pd-0);
+    }
+}

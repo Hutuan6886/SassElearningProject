@@ -1,0 +1,29 @@
+.darkmode {
+    .courses {
+        .courses-content {
+            .courses__tilte {
+                background-color: $color-dark-black;
+                .courses-left {
+                    h2 {
+                        color: $color-dark-gray-1;
+                    }
+                }
+            }
+            .courses__scroll {
+                #myTab {
+                    .nav-item {
+                        .nav-link {
+                            color: $color-dark-gray;
+                            &:hover {
+                                color: $color-dark-gray-1;
+                            }
+                            &.active{
+                                background-color: $color-dark-1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

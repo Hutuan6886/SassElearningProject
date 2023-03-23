@@ -1,0 +1,57 @@
+header {
+    .navbar {
+        #sidebar {
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100vh;
+            z-index: 999;
+            background: #643c38;
+            color: #fff;
+            transition: all 0.3s;
+            overflow-y: scroll;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+            .sidebar-header {
+                padding: 20px;
+                background: #643c38;
+            }
+            .sidebar__content {
+                width: 90%;
+                margin: 0 auto;
+            }
+            .sidebar__bottom{
+                width: 90%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+
+            // class kiểu gắn thêm
+            // nghĩa là id= #sidebar class= active
+            &.active {
+                left: 0;
+            }
+        }
+        
+    }
+
+    
+}
+
+.overlay-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    &.active {
+        display: block;
+        opacity: 1;
+    }
+}
+

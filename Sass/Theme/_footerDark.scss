@@ -1,0 +1,29 @@
+.darkmode{
+    footer{
+        .footer__content{
+            a{
+                color: $color-dark-gray-1;
+            }
+            .dropup-center{
+                .btn{
+                    background-color: $color-dark-0;
+                    border-color: $color-dark-2;      
+                }
+                .dropdown-menu{
+                    background-color: $color-dark-0;
+                }
+            }
+        }
+        .footer__bottom{
+            .bottom__left{
+                .logo-light {
+                    display: none;
+                }
+                .logo-dark {
+                    display: block;
+                }
+            }
+        }
+        
+    }
+}

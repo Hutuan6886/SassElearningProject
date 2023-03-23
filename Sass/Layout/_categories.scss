@@ -1,0 +1,22 @@
+.categories {
+    margin: 25px 0;
+    .categories__content {
+        width: 90%;
+        margin: 0 auto;
+        h3 {
+            font-size: $fs-3;
+        }
+        .categories__items {
+            padding: 15px;
+            cursor: pointer; // hiệu ứng đổi chuột khi hover
+            border: 1px solid $color-input-focus;
+            border-radius: 5px;
+            box-shadow: 0px 1px 8px 0px $color-input-focus;
+            margin-bottom: $mg-2 - 5;
+            transition: all 0.5s;
+            &:hover {
+                box-shadow: 0px 1px 8px 0px $color-gray-cream;
+            }
+        }
+    }
+}

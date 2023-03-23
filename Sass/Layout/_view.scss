@@ -1,0 +1,14 @@
+// Viết riêng cho phần view
+
+.view{
+    margin: 25px 0;
+    .view__content{
+        // Căn 2 bên 
+        width: 90%;
+        margin: 0 auto;
+        h3 {
+            @include style($color-black-0, $fs-3, $fw-0);
+            padding: 22px 0;
+        }
+    }
+}

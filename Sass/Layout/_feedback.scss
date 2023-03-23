@@ -1,0 +1,14 @@
+.feedback{
+    margin: 25px 0;
+    .feedback__content{
+        width: 90%;
+        margin: 0 auto;
+        h3{
+            @include style($color-black-0, $fs-3, $fw-0);
+            margin: 15px 0;
+        }
+
+
+        // feedback__cards trong phần card
+    }
+}
